@@ -1,0 +1,26 @@
+name : Automating image push to DockerHub
+on: [push]
+jobs:
+  build-and-publish:
+  runs-on: ubuntu-latest
+  permissions:
+    id-token: write
+    contents: write
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        username: ${{ github.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Building and pushing Docker image to dockerhub
+      run: | 
+        registry="hackim72000"
+        sha=$(git rev-parse --short HEAD)
+        primary_tag="${registry}/cicd-test:${sha}"
+
+        docker build -t "$primary_tag} -f Dockerfile .
+        docker push "$primary_tag"
+
+
+      # HELLO
