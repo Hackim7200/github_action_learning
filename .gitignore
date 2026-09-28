@@ -1,0 +1,34 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Dependencies
+node_modules/
+vendor/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Build output and caches
+dist/
+build/
+coverage/
+.cache/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# GitHub Actions local runner files
+.actrc
+.secrets
